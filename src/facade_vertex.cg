@@ -1,0 +1,31 @@
+struct VertexIn
+{ // input : vertex we get it from OpenGL
+	float4 position : POSITION;
+	float4 color : COLOR0;
+	float2 texCoord : TEXCOORD0;
+};
+
+struct VertexOut // Output: the modified input vertex
+{
+	float4 position : POSITION;
+	float2 texCoord : TEXCOORD0;
+	float4 color : COLOR0;
+};
+
+
+
+VertexOut main(VertexIn vIn,
+const uniform float4x4 modelViewProj)
+{
+	VertexOut vOut;
+
+	// Transform the current vertex from object space to clip space, since OpenGL isn't doing it for us
+	// as long we're using a vertex shader
+	vOut.position = mul(modelViewProj, vIn.position);
+
+	// Send the texture map coords and normal map coords to the fragment shader
+	vOut.texCoord = vIn.texCoord;
+	vOut.color = vIn.color;
+	return vOut;
+}
+
