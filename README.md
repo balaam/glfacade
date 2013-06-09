@@ -14,7 +14,7 @@ Before we got the PlayStation Vita development kits, we started reading the docs
 Libraries
 ---------
 
-I've not included the library directory. I used a existing project template to start up (also available in this repo) which is why Lua is one of the expected libraries.
+I've not included the library directory. I used an existing project template to start up (also available in my github) which is why Lua is one of the expected libraries.
 
 Cg comes from somewhere on Nvidia's site. It's not particularly friendly to get.
 ./lib/cg.lib
